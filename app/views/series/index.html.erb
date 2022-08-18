@@ -1,0 +1,25 @@
+<h1><%= pluralize(@series.size, "Dorama", "Doramas") %></h1>
+
+    <% @series.each do |serie| %>
+        <article>
+            <header>
+                <h2> <%= link_to serie.name, serie %> </h2>
+                <%= image(serie) %>
+            </header>
+            <p>
+                <%= edit_classif(serie) %>
+            </p>
+            <p>
+                <%= truncate(serie.synopsis, length:40, separator: ' ') %>
+            </p>
+            <p>
+                <%= serie.cast %>
+            </p>
+            <p>
+                <%= serie.soundtrack %>
+            </p>
+        </article>
+    <% end %>
+
+    <%= link_to 'Cadastrar novo Dorama', new_series_path %>
+

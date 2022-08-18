@@ -1,0 +1,26 @@
+<article>
+    <header>
+        <h1> <%= @serie.name %> </h1>
+        <%= image(@serie) %>
+    </header>
+    <h2>Classificação</h2>
+    <p>
+        <%= edit_classif(@serie) %>
+    </p>
+    <h2>Sinopse</h2>
+    <p>
+        <%= @serie.synopsis%>
+    </p>
+    <h2>Elenco</h2>
+    <p>
+        <%= @serie.cast %>
+    </p>
+    <h2>Trilha Sonora</h2>
+    <p>
+        <%= @serie.soundtrack %>
+    </p>
+</article>
+
+<%= link_to 'Doramas', series_index_path %>
+<%= link_to 'Editar', edit_series_path(@serie) %>
+<%= button_to 'Apagar', @serie, method: :delete, form: {data: { turbo_confirm: "Voce tem certeza que quer apagar?"}} %>
